@@ -15,13 +15,13 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('username')->unique();
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->string('username')->nullable();
+            $table->string('name',50);
+            $table->string('email',50)->unique();
             $table->string('mobile');
             $table->string('password');
             $table->string('password1');
-            $table->unsignedBigInteger('referrer_id')->nullable();
+            $table->string('referral_id')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->decimal('fund_wallet', 10, 2)->default(0.00);
             $table->decimal('wallet_balance', 10, 2)->default(0.00);
@@ -32,7 +32,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
 
             // Foreign key relationship
-            $table->foreign('referrer_id')->references('id')->on('users')->onDelete('set null');
+            // $table->foreign('referral_id')->references('username')->on('users')->onDelete('set null');
         });
     }
 
@@ -46,3 +46,4 @@ class CreateUsersTable extends Migration
         Schema::dropIfExists('users');
     }
 }
+
