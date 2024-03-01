@@ -40,6 +40,17 @@ class UserController extends Controller
             ], 200);
         }
 
+
+        $existingUser = User::where('username', $request->referral_id)->first();
+    if (!$existingUser) {
+        return response([
+            'message' => 'Referral ID does not exist',
+            'status' => 'failed'
+        ], 200);
+    }
+
+
+
         // Create a new user in the database
         $user = User::create([
             'name' => $request->name,
@@ -50,20 +61,28 @@ class UserController extends Controller
             'referral_id' => $request->referral_id,
         ]);
 
+
+        // return $request->referral_id;
+
         // Generate a username
         $prefix = 'EP';
         $randomNumber = mt_rand(1000, 9999);
         $username = $prefix . $user->id . $randomNumber;
 
         // Update the user record with the generated username
-        $user->update(['username' => $username]);
-
+        $user->update(['username' => $username,'referral_id'=>$request->referral_id]);
+        // $user->update(['referral_id'=>$request->referral_id]);
         // Respond with a success message and user information
         return response([
             'message' => 'Registration success',
             'status' => 'success',
             'user' => $user,
         ], 201);
+    }
+
+    public function allUsers(Request $request){
+        
+         return view('allusers');
     }
 
 
