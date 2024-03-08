@@ -5,23 +5,24 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <style>
-
 .table-responsive {
     margin: 30px 0;
 }
 
 .table-wrapper {
     min-width: 1000px;
-    background: #000; /* Black background */
+    background: #000;
+    /* Black background */
     padding: 20px 25px;
     border-radius: 3px;
-    overflow:hidden;
+    overflow: hidden;
     box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
 }
 
 .table-title {
     color: #fff;
-    background: #eb1616; /* Red background */
+    background: #eb1616;
+    /* Red background */
     padding: 16px 25px;
     margin: -20px -25px 10px;
     border-radius: 3px 3px 0 0;
@@ -115,46 +116,52 @@ table.table td a {
 }
 
 table.table td a.view {
-    color: #FFC107; /* Yellow color for view links */
+    color: #FFC107;
+    /* Yellow color for view links */
 }
 
 table.table td a.edit {
-    color: #03A9F4; /* Blue color for edit links */
+    color: #03A9F4;
+    /* Blue color for edit links */
 }
 
 table.table td a.delete {
-    color: #fff; /* White color for delete links */
+    color: #fff;
+    /* White color for delete links */
 }
 
 table.table td i {
     font-size: 19px;
 }
+
 .status-btn {
-        display: inline-block;
-        cursor: pointer;
-        padding: 5px 3px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        text-align: center;
-    }
+    display: inline-block;
+    cursor: pointer;
+    padding: 5px 3px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
 
-    .active {
-        color: #fff;
-        background-color: #5cb85c; /* Green */
-    }
+.active {
+    color: #fff;
+    background-color: #5cb85c;
+    /* Green */
+}
 
-    .inactive {
-        color: #fff;
-        background-color: #d9534f; /* Red */
-    }
-
+.inactive {
+    color: #fff;
+    background-color: #d9534f;
+    /* Red */
+}
 </style>
 
 </head>
+
 <body>
     <div class="container-lg">
         <div class="table-responsive">
-            <div class="table-wrapper">			
+            <div class="table-wrapper">
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-6">
@@ -162,7 +169,7 @@ table.table td i {
                         </div>
                         <div class="col-sm-6">
                             <div class="search-box">
-                                <div class="input-group">								
+                                <div class="input-group">
                                     <input type="text" id="search" class="form-control" placeholder="Search by Name">
                                     <span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
                                 </div>
@@ -173,95 +180,51 @@ table.table td i {
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>#</th>
                             <th>Sr.No</th>
-                            <th>Name</th>
                             <th>Username</th>
-                            <th style="width:250px">E-mail</th>
+                            <th>Name</th>
+                            <th style="width: 245px;">Email</th>
+                            <th>mobile</th>
                             <th>Sponser Id</th>
-                            <th>Total Invested</th>
-                            <th>Total Income</th>
-                            <th>Wallet Balance</th>
                             <th>Fund Balance</th>
+                            <th>Wallet Balance</th>
+                            <th>Self Invested</th>
                             <th>Time</th>
                             <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($allusers as $u)
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td><div class="status-btn active" onclick="toggleStatus(this)">Active</div></td>
-                            <!-- <td>
-                                <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                            </td> -->
+                            <td>1</td>
+                            <td>{{$u->username}}</td>
+                            <td>{{$u->name}}</td>
+                            <td>{{$u->email}}</td>
+                            <td>{{$u->mobile}}</td>
+                            <td>{{$u->referral_id}}</td>
+                            <td>{{$u->fund_wallet}}</td>
+                            <td>{{$u->wallet_balance}}</td>
+                            <td>{{$u->self_invested}}</td>
+                            <td>{{$u->created_at}}</td>
+                            @if ($u->status == 0)
+
+                            <td><span class="badge bg-danger rounded-pill"
+                                    onclick="HandLine('{{ $u->username }}', this)">Blocked</span>
+                            </td>
+                            @else
+                            <td><span class="badge bg-success rounded-pill"
+                                    onclick="HandLine('{{ $u->username }}', this)">Active</span>
+                            </td>
+                            @endif
                         </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <!-- <td>
-                                <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                            </td> -->
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <!-- <td>
-                                <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                            </td> -->
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <!-- <td>
-                                <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                            </td> -->
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <!-- <td>
-                                <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                            </td> -->
-                        </tr>
-                                
+                        @endforeach
                     </tbody>
                 </table>
             </div>
-        </div>        
-    </div> 
-    <script>
-$(document).ready(function() {
+        </div>
+    </div>
+    <!-- <script>
+   $(document).ready(function() {
         // Fetch users on page load
         fetchUsers();
 
@@ -299,8 +262,8 @@ $(document).ready(function() {
 
             $.each(users, function(index, user) {
                 console.log(users)
-                var statusClass = user.status ? 'active' : 'inactive';
-                var statusText = user.status ? 'Active' : 'Inactive';
+                // var statusClass = user.status ? 'active' : 'inactive';
+                // var statusText = user.status ? 'Active' : 'Inactive';
                 var formattedDate = formatDate(user.created_at);
                 tableBody.append(`
                     <tr>
@@ -314,12 +277,6 @@ $(document).ready(function() {
                         <td>${user.total_income}</td>
                         <td>${user.wallet_balance}</td>
                         <td>${user.fund_wallet}</td>
-                        <td>${formattedDate}</td>
-                        <td>
-                            <div class="status-btn ${statusClass}" onclick="toggleStatus(this)">
-                                ${statusText}
-                            </div>
-                        </td>
                     </tr>
                 `);
             });
@@ -331,7 +288,7 @@ $(document).ready(function() {
         }
     });
 
-function toggleStatus(btn) {
+     function toggleStatus(btn) {
         // Toggle between active and inactive classes
         btn.classList.toggle('active');
         btn.classList.toggle('inactive');
@@ -345,7 +302,33 @@ function toggleStatus(btn) {
             // Add logic for handling inactive status
         }
     }
-</script>    
+
+</script>     -->
+
+    <script>
+    var domain = "{{ env('Domain') }}";
+
+    function HandLine(username, e) {
+        var requestOptions = {
+            method: 'get',
+            redirect: 'follow'
+        };
+
+        fetch(`${domain}/admin/change-status?username=${username}`, requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                if (result.status === 0) {
+                    e.innerHTML = "Blocked";
+                    e.style.setProperty('background-color', 'red', 'important'); // Change background color of span
+                } else {
+                    e.innerHTML = "Active";
+                    e.style.setProperty('background-color', 'green',
+                        'important'); // Change background color of span
+                }
+            })
+            .catch(error => console.log('error', error));
+    }
+    </script>
 </body>
 
 </html>

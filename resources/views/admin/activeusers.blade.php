@@ -167,7 +167,7 @@ table.table td i {
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-6">
-                            <h2>Inactive Users</b></h2>
+                            <h2>Active Users</b></h2>
                         </div>
                         <div class="col-sm-6">
                             <div class="search-box">
@@ -195,9 +195,9 @@ table.table td i {
                             <th>Status</th>
                         </tr>
                     </thead>
-                    <tbody>
 
-                        @foreach($inactiveUsers as $user)
+                    <tbody>
+                        @foreach($activeUsers as $user)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $user->username }}</td>
@@ -217,11 +217,14 @@ table.table td i {
                             </td>
                         </tr>
                         @endforeach
-
                     </tbody>
+
+                    <!-- Your existing HTML and styles -->
+
                 </table>
             </div>
         </div>
     </div>
     <!-- Content End -->
+
     @include('admin.footer')

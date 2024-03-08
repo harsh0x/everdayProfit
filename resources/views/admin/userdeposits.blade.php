@@ -1,4 +1,6 @@
 @include('admin.header')
+
+
 <!-- content start -->
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -167,7 +169,7 @@ table.table td i {
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-6">
-                            <h2>Inactive Users</b></h2>
+                            <h2>User Deposit</b></h2>
                         </div>
                         <div class="col-sm-6">
                             <div class="search-box">
@@ -197,26 +199,7 @@ table.table td i {
                     </thead>
                     <tbody>
 
-                        @foreach($inactiveUsers as $user)
-                        <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $user->username }}</td>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>{{ $user->mobile }}</td>
-                            <td>{{ $user->referral_id }}</td>
-                            <td>{{ $user->fund_wallet }}</td>
-                            <td>{{ $user->wallet_balance }}</td>
-                            <td>{{ $user->self_invested }}</td>
-                            <td>{{ $user->created_at }}</td>
 
-                            <td>
-                                <span class="status-btn {{ $user->status == 1 ? 'active' : 'inactive' }}">
-                                    {{ $user->status == 1 ? 'Active' : 'Inactive' }}
-                                </span>
-                            </td>
-                        </tr>
-                        @endforeach
 
                     </tbody>
                 </table>
@@ -224,4 +207,6 @@ table.table td i {
         </div>
     </div>
     <!-- Content End -->
+
+
     @include('admin.footer')

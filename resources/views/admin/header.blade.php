@@ -14,8 +14,9 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet"> 
-    
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap"
+        rel="stylesheet">
+
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -26,16 +27,23 @@
     <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{url('')}}/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="{{url('')}}/css/style.css" rel="stylesheet">
 </head>
+<style>
+.sidebar {
+    overflow: hidden;
+    /* Hide both horizontal and vertical scrollbars */
+}
+</style>
 
 <body>
     <div class="container-fluid position-relative d-flex p-0">
         <!-- Spinner Start -->
-        <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div id="spinner"
+            class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
@@ -60,18 +68,30 @@
                     </div> -->
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="{{route('index')}}" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="{{route('index')}}" class="nav-item nav-link active"><i
+                            class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <br>
-                    <a href="{{route('all-users')}}" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>All Users</a>
+                    <a href="{{route('all-users')}}" class="nav-item nav-link active"><i
+                            class="bi bi-people-fill"></i>All Users</a>
                     <br>
-                    <a href="{{route('inactive-users')}}" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Inactive Users</a>
+                    <a href="{{route('active-users')}}" class="nav-item nav-link active"><i
+                            class="ri-heart-3-fill"></i>Active Users</a>
                     <br>
-                    <a href="{{route('transaction-history')}}" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Txn History</a>
+                    <a href="{{route('inactive-users')}}" class="nav-item nav-link active"><i
+                            class="ri-dislike-fill"></i>Inactive Users</a>
                     <br>
-                    <a href="{{route('add-funds')}}" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Add Funds</a>
+
+                    <a href="{{route('add-funds')}}" class="nav-item nav-link active"><i
+                            class="ri-money-rupee-circle-line"></i>Add Funds</a>
                     <br>
-                    <a href="{{route('logout')}}" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Log Out</a>
-                    
+                    <a href="{{route('user-deposits')}}" class="nav-item nav-link active"><i
+                            class="ri-user-shared-fill"></i>Deposit history</a>
+                    <br>
+                    <a href="{{route('user-withdrawl')}}" class="nav-item nav-link active"><i
+                            class="ri-user-received-fill"></i>Withdrawl History</a>
+                    <br>
+
+
                     <div class="nav-item dropdown">
                     </div>
                 </div>
@@ -98,7 +118,8 @@
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">
                                 <div class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <img class="rounded-circle" src="img/user.jpg" alt=""
+                                        style="width: 40px; height: 40px;">
                                     <div class="ms-2">
                                         <h6 class="fw-normal mb-0">Jhon send you a message</h6>
                                         <small>15 minutes ago</small>
@@ -108,7 +129,8 @@
                             <hr class="dropdown-divider">
                             <a href="#" class="dropdown-item">
                                 <div class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <img class="rounded-circle" src="img/user.jpg" alt=""
+                                        style="width: 40px; height: 40px;">
                                     <div class="ms-2">
                                         <h6 class="fw-normal mb-0">Jhon send you a message</h6>
                                         <small>15 minutes ago</small>
@@ -118,7 +140,8 @@
                             <hr class="dropdown-divider">
                             <a href="#" class="dropdown-item">
                                 <div class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <img class="rounded-circle" src="img/user.jpg" alt=""
+                                        style="width: 40px; height: 40px;">
                                     <div class="ms-2">
                                         <h6 class="fw-normal mb-0">Jhon send you a message</h6>
                                         <small>15 minutes ago</small>
@@ -155,13 +178,15 @@
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">John Doe</span>
+                            <!-- <img class="rounded-circle me-lg-2" src="img/user.jpg" alt=""
+                                style="width: 40px; height: 40px;"> -->
+                            <span class="d-none d-lg-inline-flex">EP16666</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">My Profile</a>
+                            <a href='/admin/profile' class="dropdown-item">My Profile</a>
+                            <a href="" class="dropdown-item">Change Password</a>
                             <!-- <a href="#" class="dropdown-item">Settings</a> -->
-                            <a href="#" class="dropdown-item">Log Out</a>
+                            <a href="/admin/adminlogout" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
                 </div>

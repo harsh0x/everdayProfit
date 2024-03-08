@@ -56,21 +56,21 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'mobile' => $request->mobile,
+            'referral_id' => $request->referral_id,
             'password' => Hash::make($request->password),
             'password1' => $request->password1,
-            'referral_id' => $request->referral_id,
         ]);
 
 
-        // return $request->referral_id;
-
+        
         // Generate a username
         $prefix = 'EP';
         $randomNumber = mt_rand(1000, 9999);
         $username = $prefix . $user->id . $randomNumber;
-
+        $refer = $request->referral_id;
+        // return $request->referral_id;
         // Update the user record with the generated username
-        $user->update(['username' => $username,'referral_id'=>$request->referral_id]);
+        $user->update(['username' => $username,'referral_id' => $refer]);
         // $user->update(['referral_id'=>$request->referral_id]);
         // Respond with a success message and user information
         return response([
