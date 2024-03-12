@@ -23,7 +23,7 @@ class CreateTransactionsTable extends Migration
             $table->string('address')->nullable();
             $table->string('transaction_type');
             $table->json('data')->nullable();
-            $table->enum('status', ['pending', 'completed'])->default('pending');
+            $table->unsignedInteger('status')->default(0);
             $table->timestamps();
         });
     }

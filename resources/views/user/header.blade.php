@@ -33,6 +33,10 @@
     <link href="{{url('')}}/css/style.css" rel="stylesheet">
 </head>
 <style>
+    :root {
+    --primary: #198754;
+    
+    }
 .sidebar {
     overflow: hidden;
     /* Hide both horizontal and vertical scrollbars */
@@ -55,7 +59,7 @@
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-secondary navbar-dark">
                 <a href="index.html" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary">Everyday Profit</h3>
+                    <h3 class="text-success">Everyday Profit</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
@@ -71,27 +75,24 @@
                     <a href="{{route('index')}}" class="nav-item nav-link active"><i
                             class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <br>
-                    <a href="{{route('all-users')}}" class="nav-item nav-link active"><i
-                            class="bi bi-people-fill"></i>All Users</a>
+                    <a href="{{route('myteam')}}" class="nav-item nav-link active"><i
+                            class="bi bi-people-fill"></i>My Team</a>
                     <br>
-                    <a href="{{route('active-users')}}" class="nav-item nav-link active"><i
-                            class="ri-heart-3-fill"></i>Active Users</a>
+                    <a href="{{route('depositfunds')}}" class="nav-item nav-link active"><i
+                            class="ri-heart-3-fill"></i>Deposit fund</a>
                     <br>
-                    <a href="{{route('inactive-users')}}" class="nav-item nav-link active"><i
-                            class="ri-dislike-fill"></i>Inactive Users</a>
+                    <a href="{{route('p2ptransfer')}}" class="nav-item nav-link active"><i
+                            class="ri-dislike-fill"></i>P 2 P Transfer</a>
                     <br>
 
-                    <a href="{{route('add-funds')}}" class="nav-item nav-link active"><i
-                            class="ri-money-rupee-circle-line"></i>Add Funds</a>
+                    <a href="{{route('transactions')}}" class="nav-item nav-link active"><i
+                            class="ri-money-rupee-circle-line"></i>Transaction</a>
                     <br>
-                    <a href="{{route('funds-history')}}" class="nav-item nav-link active"><i
-                            class="ri-money-rupee-circle-line"></i>Funds History</a>
+                    <a href="{{route('planpurchase')}}" class="nav-item nav-link active"><i
+                            class="ri-money-rupee-circle-line"></i>Plan Purchase</a>
                             <br>
-                    <a href="{{route('user-deposits')}}" class="nav-item nav-link active"><i
-                            class="ri-user-shared-fill"></i>Deposit history</a>
-                    <br>
-                    <a href="{{route('user-withdrawl')}}" class="nav-item nav-link active"><i
-                            class="ri-user-received-fill"></i>Withdrawl History</a>
+                    <a href="{{route('incomes')}}" class="nav-item nav-link active"><i
+                            class="ri-user-shared-fill"></i>incomes</a>
                     <br>
 
 
@@ -110,8 +111,8 @@
                 <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
                     <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
                 </a>
-                <a href="#" class="sidebar-toggler flex-shrink-0">
-                    <i class="fa fa-bars"></i>
+                <a href="#" class="sidebar-toggler flex-shrink-0 ">
+                    <i class="fa fa-bars text-success"></i>
                 </a>
                 <!-- <form class="d-none d-md-flex ms-4">
                     <input class="form-control bg-dark border-0" type="search" placeholder="Search">
@@ -186,10 +187,10 @@
                             <span class="d-none d-lg-inline-flex">EP16666</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-                            <a href='/admin/profile' class="dropdown-item">My Profile</a>
+                            <a href='/user/profile' class="dropdown-item">My Profile</a>
                             <a href="" class="dropdown-item">Change Password</a>
                             <!-- <a href="#" class="dropdown-item">Settings</a> -->
-                            <a href="/admin/adminlogout" class="dropdown-item">Log Out</a>
+                            <a href="/user/adminlogout" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
                 </div>

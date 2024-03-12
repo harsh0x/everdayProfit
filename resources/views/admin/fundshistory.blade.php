@@ -1,8 +1,6 @@
 @include('admin.header')
 
 
-
-
 <!-- content start -->
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -165,13 +163,14 @@ table.table td i {
 </head>
 
 <body>
+
     <div class="container-lg">
         <div class="table-responsive">
             <div class="table-wrapper">
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-6">
-                            <h2>Withdrawl History</b></h2>
+                            <h2>Funds History</h2>
                         </div>
                         <div class="col-sm-6">
                             <div class="search-box">
@@ -190,8 +189,8 @@ table.table td i {
                             <th>Username</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>mobile</th>
-                            <th>Sponser Id</th>
+                            <th>Mobile</th>
+                            <th>Sponsor Id</th>
                             <th>Fund Balance</th>
                             <th>Wallet Balance</th>
                             <th>Self Invested</th>
@@ -200,17 +199,33 @@ table.table td i {
                         </tr>
                     </thead>
                     <tbody>
-
-
-
+                        <!-- Loop through your fund history data and populate the table rows -->
+                        @foreach($fundHistory as $history)
+                            <tr>
+                            <td>{{ $loop->iteration }}</td>
+                                <td>{{ $history->username }}</td>
+                                <td>{{ $history->name }}</td>
+                                <td>{{ $history->email }}</td>
+                                <td>{{ $history->mobile }}</td>
+                                <td>{{ $history->referral_id }}</td>
+                                <td>{{ $history->fund_wallet }}</td>
+                                <td>{{ $history->wallet_balance }}</td>
+                                <td>{{ $history->self_invested }}</td>
+                                <td>{{ $history->created_at }}</td>
+                                <td>
+                                    @if ($history->status == 0)
+                                        <span class="badge bg-danger rounded-pill">Blocked</span>
+                                    @else
+                                        <span class="badge bg-success rounded-pill">Active</span>
+                                    @endif
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+
     <!-- Content End -->
-
-
-
-
-    @include('admin.footer')
+@include('admin.footer')

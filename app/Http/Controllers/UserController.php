@@ -141,4 +141,40 @@ class UserController extends Controller
 //      }
 
 // }
+
+public function userDashboard()
+{
+    return view('user_dashboard');
+}
+
+public function MyTeam(Request $request){
+        
+    return view('user.myteam');
+   }
+
+   public function DepositFunds(Request $request){
+        
+    return view('user.depositfunds');
+   }
+
+   public function p2pTransfer(Request $request){
+        
+    return view('user.p2ptransfer');
+   }
+
+   public function Transactions(Request $request){
+        
+    return view('user.transactions');
+   }
+
+   public function PlanPurchase(Request $request){
+        
+    return view('user.planpurchase');
+   }
+
+   public function Incomes(Request $request){
+        
+    return view('user.incomes');
+   }
+
 }

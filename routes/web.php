@@ -22,7 +22,7 @@ use App\Http\Controllers\AdminController;
 // });
 
 
-Route::view('/registration', "admin.registration");
+Route::view('/user/register', "user.register");
 
 
 // Route::view('/index', "admin.index")->name('index');
@@ -54,19 +54,19 @@ Route::post('/postsign',[AdminController::class,'login'])->name('postsign');
 
 
 // All Users
-Route::get('all-users',[AdminController::class,'allUsers'])->name('all-users');
+Route::get('/admin/all-users',[AdminController::class,'allUsers'])->name('all-users');
 
 // Active Users
-Route::get('active-users',[AdminController::class,'getActiveUsers'])->name('active-users');
+Route::get('/admin/active-users',[AdminController::class,'getActiveUsers'])->name('active-users');
 
 // Inactive Users
-Route::get('inactive-users',[AdminController::class,'getInactiveUsers'])->name('inactive-users');
+Route::get('/admin/inactive-users',[AdminController::class,'getInactiveUsers'])->name('inactive-users');
 
 // user deposits
-Route::get('user-deposits',[AdminController::class,'userdeposits'])->name('user-deposits');
+Route::get('/admin/user-deposits',[AdminController::class,'userdeposits'])->name('user-deposits');
 
 // user withdrawl
-Route::get('user-withdrawl',[AdminController::class,'userwithdrawl'])->name('user-withdrawl');
+Route::get('/admin/user-withdrawl',[AdminController::class,'userwithdrawl'])->name('user-withdrawl');
 
 // Transaction History
 // Route::get('transaction-history',[AdminController::class,'transactionhistory'])->name('transaction-history');
@@ -75,17 +75,23 @@ Route::get('user-withdrawl',[AdminController::class,'userwithdrawl'])->name('use
 // Route::get('/add-funds', 'FundsController@addFunds')->name('add-funds');
 // Route::post('/add-funds', 'FundsController@store')->name('add-funds.store');
 
-Route::get('add-funds',[AdminController::class,'addfunds'])->name('add-funds');
+
+// add funds
+Route::get('/admin/add-funds',[AdminController::class,'addfunds'])->name('add-funds');
+
+
+// funds history
+Route::get('/admin/funds-history',[AdminController::class,'fundshistory'])->name('funds-history');
 
 // My Profile
-Route::get('My-Profile',[AdminController::class,'MyProfile'])->name('My-Profile');  
+Route::get('/admin/My-Profile',[AdminController::class,'MyProfile'])->name('My-Profile');  
 
 // Change Password
-Route::get('change-password',[AdminController::class,'changepassword'])->name('change-password');  
+Route::get('/admin/change-password',[AdminController::class,'changepassword'])->name('change-password');  
 
 // Logout (handled by Laravel's Auth system)
 // Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
-Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
+Route::get('/admin//logout', [AdminController::class, 'logout'])->name('logout');
 
 // get all users
 Route::get('/admin/getallusers', [AdminController::class, 'getAllUsers']);
@@ -96,7 +102,7 @@ Route::get('/admin/change-status', [AdminController::class, 'changeStatus']);
 
 // to protect admin route
 // Route::group(['middleware'=>['admin']],function(){
-    Route::view('/index', "admin.index")->name('index');
+    Route::view('/admin/index', "admin.index")->name('index');
 // });
 
 
@@ -124,3 +130,42 @@ Route::get('/admin/adminlogout', [AdminController::class, 'adminLogout'])->name(
 // routes/web.php
 
 Route::post('/admin/add-fund', [AdminController::class,"addFund"])->name('adminaddfund');
+
+// fund history
+Route::get('funds-history', [AdminController::class, 'FundsHistory'])->name('funds-history');
+
+
+
+// ----------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+
+
+// User Dashboard Route
+Route::view('/user/index', "user.index")->name('index');
+
+// myteam
+Route::get('/user/my-team',[UserController::class,'MyTeam'])->name('myteam');
+
+// depositfunds
+Route::get('/user/deposit-funds',[UserController::class,'DepositFunds'])->name('depositfunds');
+
+// p2p transfer
+Route::get('/user/p2p-transfer',[UserController::class,'p2pTransfer'])->name('p2ptransfer');
+
+//transactions
+Route::get('/user/transactions',[UserController::class,'Transactions'])->name('transactions');
+
+// plan purchase
+Route::get('/user/plan-purchase',[UserController::class,'PlanPurchase'])->name('planpurchase');
+
+// incomes
+Route::get('/user/incomes',[UserController::class,'Incomes'])->name('incomes');
+
+// plan purchase & plan history tabs
+Route::view('/user/planpurchase','user.PlanPurchase')->name('planpurchase');
+Route::view('/user/planhistory','user.planhistory')->name('planhistory');
+
+// deposit funds and withdraw funds tabs
+Route::view('/user/depositfunds','user.DepositFunds')->name('depositfunds');
+Route::view('/user/withdrawfunds','user.withdrawFunds')->name('withdrawfunds');

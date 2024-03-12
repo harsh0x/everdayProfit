@@ -3,16 +3,16 @@
 <body>
     <div class="container-fluid pt-5 mt-5">
         <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-12 col-xs-12 edit_information mx-auto">
-            <form action="" method="POST">
+            <form action="{{ route('admin.vprofile') }}" method="POST">
                 @csrf
                 <h3 class="text-center"> Personal Information</h3>
 
 
-                @if(session('success'))
+                <!-- @if(session('success'))
                 <div class="alert alert-success">
                     {{ session('success') }}
                 </div>
-                @endif
+                @endif -->
 
 
                 <div class="row ">

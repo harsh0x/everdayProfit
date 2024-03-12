@@ -10,6 +10,7 @@ use Validator;
 use DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\FundHistory;
 use Illuminate\Validation\ValidationException;
 
 
@@ -59,6 +60,16 @@ public function addfunds(Request $request){
         
     return view('admin.addfunds');
    }
+
+//    public function FundsHistory(Request $request){
+//         // Fetch all fund history data from the database
+//         $fundHistory = FundHistory::all();
+    
+
+//     // Return the data to the view
+//     return view('admin.fundshistory',compact('fundHistory'));
+
+//    }
 
    public function userdeposits(Request $request){
         
@@ -248,6 +259,18 @@ public function addfunds(Request $request){
         return redirect()->back()->with('success', 'Funds added successfully.');
     }
     
+    // fund history
+
     
+    public function FundsHistory()
+{
+    // Retrieve fund history data where associated user's fund_wallet is greater than 0
+    $fundHistory = FundHistory::whereHas('user', function ($query) {
+        $query->where('fund_wallet', '>', 0);
+    })->get();
+
+    // Return the data to the view
+    return view('admin.fundshistory', compact('fundHistory'));
+}
 
 }
