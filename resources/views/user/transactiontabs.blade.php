@@ -59,8 +59,8 @@
     
     <div class="main">
         <div class="tab-container">
-            <a href="/user/depositfunds"><div class="tab1">Deposit Funds</div></a>
-            <a href="/user/withdrawfunds"><div class="tab2">Withdraw Funds</div></a>
+            <a href="/user/deposithistory"><div class="tab1">Deposit History</div></a>
+            <a href="/user/withdrawhistory"><div class="tab2">Withdraw History</div></a>
         </div>
 
       

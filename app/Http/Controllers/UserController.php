@@ -162,9 +162,9 @@ public function MyTeam(Request $request){
     return view('user.p2ptransfer');
    }
 
-   public function Transactions(Request $request){
+   public function Transaction(Request $request){
         
-    return view('user.transactions');
+    return view('user.transaction');
    }
 
    public function PlanPurchase(Request $request){

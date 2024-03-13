@@ -41,6 +41,57 @@
     overflow: hidden;
     /* Hide both horizontal and vertical scrollbars */
 }
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+.glow-button {
+  display: inline-block;
+  padding: 8px 15px; /* Adjusted padding for smaller size */
+  font-size: 14px; /* Adjusted font size */
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #2ecc71; /* Changed to green color */
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+.glow-button:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 80%);
+  opacity: 0;
+  border-radius: 50%;
+  animation: glowing 1.5s infinite;
+}
+
+@keyframes glowing {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 </style>
 
 <body>
@@ -85,7 +136,7 @@
                             class="ri-dislike-fill"></i>P 2 P Transfer</a>
                     <br>
 
-                    <a href="{{route('transactions')}}" class="nav-item nav-link active"><i
+                    <a href="{{route('transaction')}}" class="nav-item nav-link active"><i
                             class="ri-money-rupee-circle-line"></i>Transaction</a>
                     <br>
                     <a href="{{route('planpurchase')}}" class="nav-item nav-link active"><i
@@ -161,6 +212,11 @@
                             <i class="fa fa-bell me-lg-2"></i>
                             <span class="d-none d-lg-inline-flex">Notificatin</span>
                         </a> -->
+
+                        
+                        <button class="glow-button">Activate Now</button>
+
+
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">
                                 <h6 class="fw-normal mb-0">Profile updated</h6>

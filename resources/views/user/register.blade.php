@@ -911,7 +911,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <h1>Registraion Form</h1>
         <div class="main-agileinfo">
             <div class="agileits-top">
-                <form action="{{ route('user.register') }}" method="post">
+                <form action="" method="post">
                     @csrf
                     <input class="text" type="text" name="name" placeholder="Name" required="">
                     <input class="text email" type="email" name="email" placeholder="Email" required="">

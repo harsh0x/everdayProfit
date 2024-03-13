@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,8 +60,10 @@
     
     <div class="main">
         <div class="tab-container">
-            <a href="/user/depositfunds"><div class="tab1">Deposit Funds</div></a>
-            <a href="/user/withdrawfunds"><div class="tab2">Withdraw Funds</div></a>
+            <a href="/user/p2ptransfer"><div class="tab1">P2P Transfer</div></a>
+            <a href="/user/transferhistory"><div class="tab2">Transfer History</div></a>
+            <a href="/user/incometofundwallet"><div class="tab2">Income to Fund Wallet</div></a>
+            <a href="/user/incometofundhistory"><div class="tab2">Income to Fund History</div></a>
         </div>
 
       

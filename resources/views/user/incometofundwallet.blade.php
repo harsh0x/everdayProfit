@@ -71,33 +71,18 @@
 <body>
 
     <div class="container">
-        <!-- Left side with two cards -->
-        <div class="card">
-            <h3>Fund Balance:</h3>
-            <!-- Add content for Fund Balance card here -->
-        </div>
-
-        <div class="card">
-            <h3>Wallet Balance:</h3>
-            <!-- Add content for Wallet Balance card here -->
-        </div>
-
         <!-- Right side with form -->
         <div class="form-container">
             <div class="form">
                 <h3>Add Fund</h3>
                 <form>
-                    <label for="amount">User Id:</label>
-                    <input type="text" id="User Id" name="User Id" required>
-
-                    <label for="amount">Enter Password:</label>
-                    <input type="text" id="Enter Password" name="Enter Password" required>
-
-                    <label for="amount">Enter Amount:</label>
+                    <label for="amount">Amount:</label>
                     <input type="text" id="amount" name="amount" required>
-                   
 
-                    <button type="submit">Proceed</button>
+                    <label for="coin">Password:</label>
+                    <input type="text" id="coin" name="coin" required>
+
+                    <button type="submit">Self Transfer</button>
                 </form>
             </div>
         </div>

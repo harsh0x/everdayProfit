@@ -29,7 +29,7 @@ Route::view('/user/register', "user.register");
 
 // Route::post('/register',[UserController::class,"register"])->name('register');
 
-Route::view('/login',"login");
+Route::view('/login',"user.login");
 
 Route::post('/login1', [UserController::class, 'login'])->name('login1');
 
@@ -154,7 +154,7 @@ Route::get('/user/deposit-funds',[UserController::class,'DepositFunds'])->name('
 Route::get('/user/p2p-transfer',[UserController::class,'p2pTransfer'])->name('p2ptransfer');
 
 //transactions
-Route::get('/user/transactions',[UserController::class,'Transactions'])->name('transactions');
+Route::get('/user/transaction',[UserController::class,'Transaction'])->name('transaction');
 
 // plan purchase
 Route::get('/user/plan-purchase',[UserController::class,'PlanPurchase'])->name('planpurchase');
@@ -169,3 +169,16 @@ Route::view('/user/planhistory','user.planhistory')->name('planhistory');
 // deposit funds and withdraw funds tabs
 Route::view('/user/depositfunds','user.DepositFunds')->name('depositfunds');
 Route::view('/user/withdrawfunds','user.withdrawFunds')->name('withdrawfunds');
+
+// p2p transfers all tabs
+
+Route::view('/user/p2ptransfer','user.p2ptransfer')->name('p2ptransfer');
+Route::view('/user/transferhistory','user.transferhistory')->name('transferhistory');
+Route::view('/user/incometofundwallet','user.incometofundwallet')->name('incometofundwallet');
+Route::view('/user/incometofundhistory','user.incometofundhistory')->name('incometofundhistory');
+
+
+// transactions all tabs
+
+Route::view('/user/deposithistory','user.deposithistory')->name('deposithistory');
+Route::view('/user/transactionhistory','user.transactionhistory')->name('transactionhistory');
